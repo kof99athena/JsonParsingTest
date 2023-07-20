@@ -1,6 +1,7 @@
 package com.athena.jsonparsingtest
 
 import android.content.ClipData.Item
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,12 +24,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btn2.setOnClickListener {
+            val intent : Intent = Intent(this,WebviewActivity::class.java)
+            startActivity(intent)
+        }
+
+
         binding.btn1.setOnClickListener {
             //버튼 눌렀을때 GET방식으로 JSON문서를 호출해오자
             //Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
 
-            var key = "f5eef3421c602c6cb7ea224104795888"
-            var targetDt = "20230601"
+            val key = "f5eef3421c602c6cb7ea224104795888"
+            val targetDt = "20120716"
 
             val builder = Retrofit.Builder()
             builder.baseUrl("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/")
@@ -48,10 +55,11 @@ class MainActivity : AppCompatActivity() {
             call.enqueue(object : retrofit2.Callback<com.athena.jsonparsingtest.data.Item> {
                 override fun onResponse(call: Call<com.athena.jsonparsingtest.data.Item>, response: Response<com.athena.jsonparsingtest.data.Item>) {
                    if (response.isSuccessful){
-                       val item: com.athena.jsonparsingtest.data.Item? = response.body()
+                       val item = response.body()
 
+                       Log.i("isSuccessful",item.toString())
                        // response.body()의 결과를 null 체크하여 movieNm을 가져오거나 기본값으로 빈 문자열 처리
-                       val movieNm: String = item?.movieNm ?: ""
+                       var movieNm: String = item?.movieNm ?: "null"
 
                        binding.tv.text = movieNm
                        Log.i("title",binding.tv.text.toString())

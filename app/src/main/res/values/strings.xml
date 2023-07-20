@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JsonParsingTest</string>
+    <string name="title_activity_webview">WebviewActi</string>
 </resources>

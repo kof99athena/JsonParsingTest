@@ -11,7 +11,7 @@ interface RetrofitService {
     //내가 직접 기능을 구현하는게아니다. 레트로핏이 그 일일 대신한다.
 
     //GET방식으로 가져온다.
-    @GET("searchDailyBoxOfficeList.json?")
+    @GET("searchDailyBoxOfficeList.json")
     fun getBoardJson(
         @Query("key") key: String,
         @Query("targetDt") targetDt: String
