@@ -34,16 +34,18 @@ class MainActivity : AppCompatActivity() {
             //버튼 눌렀을때 GET방식으로 JSON문서를 호출해오자
             //Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
 
-            val key = "f5eef3421c602c6cb7ea224104795888"
-            val targetDt = "20120716"
+            val key = "3d4d195993be83f612873e55e67eac16"
+            val targetDt = "20230703"
 
             val builder = Retrofit.Builder()
             builder.baseUrl("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/")
+
             builder.addConverterFactory(GsonConverterFactory.create())
             val retrofit : Retrofit = builder.build()
             //converter를 만는 공장을 세우고, 필요할때마다 gson이 알아서 처리하게 명령내림.
             //converter는 gson과 retrofit2를 연결해주는 라이브러리
             //retrofit에게 gson이 필요할때마다 쓰겠다고 명령 내린것임.
+
 
             //이제 인터페이스에 적혀있는 명세서대로 retrofit이 그 동작들을 대신해준다.
             val retrofitService : RetrofitService = retrofit.create(RetrofitService::class.java)// 다시확인

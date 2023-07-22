@@ -20,7 +20,7 @@ class WebviewActivity : AppCompatActivity() {
            settings.javaScriptEnabled =true
        }
        binding.webview.loadUrl("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20230703")
-    }
+    }//onCreate
 
     override fun onBackPressed() {
         if (binding.webview.canGoBack()){
@@ -28,5 +28,5 @@ class WebviewActivity : AppCompatActivity() {
         }else{
             finish()
         }
-    }
+    }//onBackPressed
 }

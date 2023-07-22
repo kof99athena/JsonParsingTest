@@ -53,9 +53,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.retrofit) //http~~통신 코드를 대신 써주는 라이브러리
-    implementation(libs.gson) // API를 통해 json으로 값을 내려받으면, json을 객체로 쉽게 파싱해주는 라이브러리
-    implementation(libs.converter.gson) //gson과 retrofit2을 연결해주는 라이브러리
+
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -68,6 +66,9 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

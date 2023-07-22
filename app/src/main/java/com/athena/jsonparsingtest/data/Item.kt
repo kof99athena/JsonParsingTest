@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Item(
     @SerializedName("movieNm")
-    var movieNm : String
+    val movieNm : String
 )
 
 //겉을 감싸는 dailyBoxOfficeList는 필요없다.
