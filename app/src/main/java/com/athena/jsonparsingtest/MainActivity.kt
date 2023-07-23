@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.athena.jsonparsingtest.databinding.ActivityMainBinding
+import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +44,16 @@ class MainActivity : AppCompatActivity() {
                     val res = response.body()
                     val list : List<DailyBoxOffice?>? = res!!.boxOfficeResult!!.dailyBoxOfficeList
 
-                    binding.tv.text = list.toString()
+                    val name = list?.mapNotNull {
+                        it?.movieNm
+                    }
+
+                    val nameText = name?.joinToString("\n") ?: ""
+                    //joinToString  : 컬렉션(배열, 리스트 등)의 요소들을 하나의 문자열로 결합해준다.
+                    //separator를 지정하여 원하는 형태로 만들수있다. ex 띄어쓰기
+
+                    binding.tv.text = nameText
+
                     Log.i("title",list.toString())
                 }
 
